@@ -39,6 +39,7 @@ price_to_float() | Transformiert einen String in einen Floatwert, sofern der Wer
 remove_nan() | Entfernt alle Zeilen mit einem NaN Wert.
 numeric() | Checkt, ob eine Spalte nur Strings enthält, die eine Zahl darstellen sollen und transformiert diese in einen Float.
 remove_outlier() | Entfernt die Ausreißer aller Spalten mit numerischen Werten.
+property_type_() | Kategorisiert den property_type anhand des Durchschnittspreises.
 
 #### MachineLearning
 Bereitet das Dataframe für Machine Learning Algorithmen vor.
@@ -70,6 +71,9 @@ Entfernt Dollerzeichen und Kommatas (werden in der US Schreibweise genutzt) und 
 
 #### remove_outlier_by_column
 Entfernt die Zeilen, die in einer bestimmten Spalte Ausreißer haben. Dazu werden die Quantile der Spalten herangezogen.
+
+#### process_property_type
+Berechnet den Durchschnittspreis für jeden Propertytype. Teil diese dann anhand des Durchschnittspreises in 4 Kategorien ein.
 
 #### report
 Gibt zum Ende der Programmlaufzeit Werte in der Shell aus. Z.B. den Mean-Squared-Error oder einen Plot.

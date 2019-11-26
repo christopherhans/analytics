@@ -1,5 +1,6 @@
 from methods.price_to_float import price_to_float
 from methods.remove_outlier_by_column import remove_outlier_from_column
+from methods.process_property_type import process_property_type
 
 
 class DataCleaning:
@@ -26,7 +27,7 @@ class DataCleaning:
     def numeric(self):
         check = lambda a: type(a) == str and a.isnumeric()
         for x in self.obj.df.columns:
-            if self.obj.df[x].map(check).any() is not False:
+            if self.obj.df[x].map(check).any() is True:
                 self.obj.df[x] = self.obj.df[x].map(float)
 
     def remove_outlier(self):
@@ -34,3 +35,6 @@ class DataCleaning:
         for x in self.obj.df.columns:
             if self.obj.df[x].map(number).any() is not False:
                 self.obj.df = remove_outlier_from_column(self.obj.df, x)
+
+    def property_type_(self):
+        self.obj.df = process_property_type(self.obj.df)

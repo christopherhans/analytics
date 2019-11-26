@@ -27,9 +27,10 @@ def analytics_run(scope=None):
     data_cleaning = DataCleaning(data)
     data_cleaning.remove_static_columns()
     data_cleaning.remove_nan()
-    data_cleaning.numeric()
     data_cleaning.price_to_float()
+    data_cleaning.numeric()
     data_cleaning.remove_outlier()
+    data_cleaning.property_type_()
 
     # some debug output
     print_debug('After cleaning: ')
@@ -38,7 +39,7 @@ def analytics_run(scope=None):
 
     # Preprocess dataframe for ML scenarios.
     data_ml = ML(data)
-    data_ml.one_hot_encoding(columns=['room_type'], drop_first=True)
+    data_ml.one_hot_encoding(columns=['room_type', 'property_type'], drop_first=True)
     data_ml.train_test(y='price', ratio=0.33, state=42)
     data_ml.scaler()
 
