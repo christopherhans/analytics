@@ -15,8 +15,6 @@ class ML:
         y = self.obj.df[y].values
         self.obj.X_train, self.obj.X_test, self.obj.y_train, self.obj.y_test = train_test_split(X, y, test_size=ratio,
                                                                                                 random_state=state)
-        print(self.obj.X_train)
-
     def scaler(self):
         min_max_scaler = preprocessing.MinMaxScaler()
         if len(self.obj.df.columns) <= 2:

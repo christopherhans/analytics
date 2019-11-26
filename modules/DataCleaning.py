@@ -33,9 +33,11 @@ class DataCleaning:
     def remove_outlier(self):
         number = lambda a: isinstance(a, (int, float)) and not isinstance(a, (bool, str))
         encoded = lambda e: e in [0,1]
+
         for x in self.obj.df.columns:
-            if self.obj.df[x].map(number).any() is True and self.obj.df[x].map(encoded).any() is False:
-                self.obj.df = remove_outlier_from_column(self.obj.df, x)
+            print(self.obj.df[x].map(number).all())
+            if self.obj.df[x].map(number).all() == True and self.obj.df[x].map(encoded).all() == False:
+                    self.obj.df = remove_outlier_from_column(self.obj.df, x)
 
     def property_type_(self):
         self.obj.df = process_property_type(self.obj.df)

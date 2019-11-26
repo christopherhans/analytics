@@ -1,5 +1,4 @@
 def remove_outlier_from_column(df, column):
-
     df[column] = df[column]._get_numeric_data()
     q1 = df[column].quantile(0.25)
     print(q1)
