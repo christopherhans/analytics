@@ -1,6 +1,6 @@
 @startuml
 
-Data <|-- VulkanRootObject
+Data
 
 class Data {
     -- Attributes --
