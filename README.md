@@ -2,12 +2,12 @@
 HTW PITB 1. Semester \
 Ist nur bedingt anwendbar auf Datensätze, die wir nicht in der Vorlesung behandelt haben.
 
-
 ## Ausführen
 ````
 python analytics.py -i <path/to/csv>
 
 ````
+Optional: ``pip install -r requirements.txt``
 ### Parameter
 
 | Kurz | Lang | Anwendung | Beschreibung |
