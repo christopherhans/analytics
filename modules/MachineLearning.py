@@ -15,10 +15,15 @@ class ML:
         y = self.obj.df[y].values
         self.obj.X_train, self.obj.X_test, self.obj.y_train, self.obj.y_test = train_test_split(X, y, test_size=ratio,
                                                                                                 random_state=state)
+        print(self.obj.X_train)
 
     def scaler(self):
         min_max_scaler = preprocessing.MinMaxScaler()
-        self.obj.X_train_scaled = min_max_scaler.fit_transform(self.obj.X_train)
-        self.obj.X_test_scaled = min_max_scaler.fit_transform(self.obj.X_test)
+        if len(self.obj.df.columns) <= 2:
+            self.obj.X_train_scaled = min_max_scaler.fit_transform(self.obj.X_train.to_numpy().reshape(-1,1))
+            self.obj.X_test_scaled = min_max_scaler.fit_transform(self.obj.X_test.to_numpy().reshape(-1,1))
+        else:
+            self.obj.X_train_scaled = min_max_scaler.fit_transform(self.obj.X_train)
+            self.obj.X_test_scaled = min_max_scaler.fit_transform(self.obj.X_test)
         self.obj.y_train_scaled = min_max_scaler.fit_transform(self.obj.y_train.reshape(-1, 1))
         self.obj.y_test_scaled = min_max_scaler.fit_transform(self.obj.y_test.reshape(-1, 1))
