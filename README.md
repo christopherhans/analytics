@@ -17,7 +17,7 @@ Optional: ``pip install -r requirements.txt``
 | -r   | --report | / | Erzeugt einen kurzen Bericht in der Shell. |
 | -d   | --debug | / | Erzeugt ein paar Print-Ausgaben, um den Programmablauf besser nachvollziehen zu können. |
 
-
+---
 ### Klassen
 
 ![Class Diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/christopherhans/analytics/master/UML/data.puml?token=ADYAJWIDVQTFTEP45EHOBTK53TXQ4)
@@ -25,6 +25,7 @@ Optional: ``pip install -r requirements.txt``
 Ein Objekt der Data-Klasse dient als modifizierbare/abfragbare Instanz des original Dataframes. \
 ``object = Data(<path to csv>)``
 
+---
 ### Module
 
 #### DataCleaning
@@ -62,6 +63,7 @@ Funktion | Nutzen
 --- | ---
 run() | Führt den Algorithmus aus. Kann mit oder ohne skalierten Werden durchgeführt werden.
 
+---
 ### Methoden
 #### price_to_float
 Entfernt Dollerzeichen und Kommatas (werden in der US Schreibweise genutzt) und wandelt den String in einen Float um.
