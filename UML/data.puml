@@ -1,7 +1,5 @@
 @startuml
 
-Data
-
 class Data {
     -- Attributes --
     - df
