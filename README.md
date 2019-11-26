@@ -20,7 +20,7 @@ Optional: ``pip install -r requirements.txt``
 
 ### Klassen
 
-![Class Diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/christopherhans/analytics/master/UML/data.puml?token=ADYAJWLGV7FS56UD5P7TMBS53TXFS)
+![Class Diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/christopherhans/analytics/master/UML/data.puml?token=ADYAJWIDVQTFTEP45EHOBTK53TXQ4)
 
 Ein Objekt der Data-Klasse dient als modifizierbare/abfragbare Instanz des original Dataframes. \
 ``object = Data(<path to csv>)``
