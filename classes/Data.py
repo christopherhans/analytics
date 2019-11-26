@@ -14,5 +14,5 @@ class Data:
         self.lr_pred = None
         self.lr_mse = None
         self.coef_ = None
-        self._intercept_ = None
+        self.intercept_ = None
         self.used_features = None

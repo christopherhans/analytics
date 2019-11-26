@@ -1,0 +1,25 @@
+@startuml
+
+Data <|-- VulkanRootObject
+
+class Data {
+    -- Attributes --
+    - df
+    - X_train
+    - X_test
+    - y_train
+    - y_test
+    - X_train_scaled
+    - X_test_scaled
+    - y_train_scaled
+    - y_test_scaled
+    - knn_pred
+    - knn_mse
+    - lr_pred
+    - lr_mse
+    - coef_
+    - intercept_
+
+}
+
+@enduml
