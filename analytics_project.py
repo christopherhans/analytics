@@ -7,6 +7,8 @@ from modules.KNN import KNN
 from modules.LRegression import LR
 from methods.report import report
 from methods.print_debug import print_debug
+import warnings
+warnings.filterwarnings('ignore')
 
 
 def analytics_run(scope=None):
