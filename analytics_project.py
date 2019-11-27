@@ -35,7 +35,6 @@ def analytics_run(scope=None):
     # Some debug output
     print_debug(data.df.head())
     print_debug('Before cleaning: ')
-    print_debug(data.df.room_type.head())
 
     # Some cleaning steps.
     # You can remove additional columns by running the remove_custom function.
@@ -51,7 +50,6 @@ def analytics_run(scope=None):
 
     # some debug output
     print_debug('After cleaning: ')
-    print_debug(data.df.room_type.head())
     # print_debug(data.df.isna().any())
 
     print_debug(data.df.head())
@@ -64,13 +62,15 @@ def analytics_run(scope=None):
 
     # Run k-Nearest-Neighbor.
     # You can specify the amount of neighbors and whether you want to use scaled train/test data.
-    data_knn = KNN(data)
-    data_knn.run(neighbors=1, scaled=scaled)
+    if 'KNN' in os.environ:
+        data_knn = KNN(data)
+        data_knn.run(neighbors=int(os.environ['KNN']), scaled=scaled)
 
     # Run Linear Regression. You can specify whether you want to use scaled train/test data.
     # If you want, you can also set a specific feature.
-    data_lr = LR(data)
-    data_lr.run(scaled=scaled)
+    if 'LINEAR_REGRESSION' in os.environ:
+        data_lr = LR(data)
+        data_lr.run(scaled=scaled)
 
     # Print a basic report for the final results.
     if os.environ['REPORT'] == '1':
