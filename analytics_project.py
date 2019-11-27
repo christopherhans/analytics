@@ -46,7 +46,7 @@ def analytics_run(scope=None):
     data_cleaning.remove_nan()
     data_cleaning.price_to_float()
     # data_cleaning.numeric()
-    # data_cleaning.remove_outlier()
+    # data_cleaning.remove_outlier() # CAUSES ISSUES
     if 'property_type' in data.df.columns:
         data_cleaning.property_type_()
 
@@ -75,7 +75,7 @@ def analytics_run(scope=None):
         data_lr.run(scaled=scaled)
 
     # Print a basic report for the final results.
-    if os.environ['REPORT'] == '1':
+    if 'REPORT' in os.environ:
         report(data)
 
     print_debug('Finished.')

@@ -31,8 +31,6 @@ if __name__ == '__main__':
         os.environ['DEBUG'] = '0'
     if options.report:
         os.environ['REPORT'] = '1'
-    else:
-        os.environ['REPORT'] = '0'
     if options.scaled:
         os.environ['SCALED'] = '1'
     else:
