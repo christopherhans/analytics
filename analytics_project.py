@@ -35,8 +35,8 @@ def analytics_run(scope=None):
         data = Data(df)
 
     # Some debug output
-    print_debug(data.df.head())
     print_debug('Before cleaning: ')
+    print_debug(data.df.head())
 
     # Some cleaning steps.
     # You can remove additional columns by running the remove_custom function.
@@ -46,14 +46,12 @@ def analytics_run(scope=None):
     data_cleaning.remove_nan()
     data_cleaning.price_to_float()
     # data_cleaning.numeric()
-    # data_cleaning.remove_outlier() # CAUSES ISSUES
+    data_cleaning.remove_outlier()
     if 'property_type' in data.df.columns:
         data_cleaning.property_type_()
 
     # some debug output
     print_debug('After cleaning: ')
-    # print_debug(data.df.isna().any())
-
     print_debug(data.df.head())
     # Preprocess dataframe for ML scenarios.
 
