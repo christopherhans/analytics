@@ -22,11 +22,15 @@ def analytics_run(scope=None):
         scaled = False
     print_debug(os.environ)
     print_debug('run')
+
     # Import dataframe from file.
     print_debug(os.environ['INVENTORY'])
     df = pd.read_csv(os.environ['INVENTORY'])
     # Initialize data object (data == the dataframe, which we wanna use for further testing).
-    data = Data(df[scope])
+    if scope:
+        data = Data(df[scope])
+    else:
+        data = Data(df)
 
     # Some debug output
     print_debug(data.df.head())
