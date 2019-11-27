@@ -17,6 +17,8 @@ Optional: ``pip install -r requirements.txt``
 |   | -s   | --scope | Für jedes Column, welches betrachtet werden muss, muss ein -s angehangen werden | Die Columns, die in das betrachtete Dataframe übernommen werden. |
 |   | -r   | --report | / | Erzeugt einen kurzen Bericht in der Shell. |
 |   | -d   | --debug | / | Erzeugt ein paar Print-Ausgaben, um den Programmablauf besser nachvollziehen zu können. |
+|   | -S   | --scaled| / | Nutzt sklaierte Werte für ML |
+|   | -D   | --drop_first | / | Setzt drop_first beim OneHotEncoding auf True |
 
 ---
 ### Klassen

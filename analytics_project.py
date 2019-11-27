@@ -10,6 +10,17 @@ from methods.print_debug import print_debug
 
 
 def analytics_run(scope=None):
+    # Helper variables
+    if os.environ['DROP'] == '1':
+        drop_first = True
+    else:
+        drop_first = False
+
+    if os.environ['SCALED'] == '1':
+        scaled = True
+    else:
+        scaled = False
+    print_debug(os.environ)
     print_debug('run')
     # Import dataframe from file.
     print_debug(os.environ['INVENTORY'])
@@ -31,7 +42,8 @@ def analytics_run(scope=None):
     data_cleaning.price_to_float()
     # data_cleaning.numeric()
     # data_cleaning.remove_outlier()
-    data_cleaning.property_type_()
+    if 'property_type' in data.df.columns:
+        data_cleaning.property_type_()
 
     # some debug output
     print_debug('After cleaning: ')
@@ -40,20 +52,21 @@ def analytics_run(scope=None):
 
     print_debug(data.df.head())
     # Preprocess dataframe for ML scenarios.
+
     data_ml = ML(data)
-    data_ml.one_hot_encoding(drop_first=True)
+    data_ml.one_hot_encoding(drop_first=drop_first)
     data_ml.train_test(y=os.environ['RESULT'], ratio=0.33, state=42)
-    # data_ml.scaler()
+    data_ml.scaler()
 
     # Run k-Nearest-Neighbor.
     # You can specify the amount of neighbors and whether you want to use scaled train/test data.
     data_knn = KNN(data)
-    data_knn.run(neighbors=1, scaled=False)
+    data_knn.run(neighbors=1, scaled=scaled)
 
     # Run Linear Regression. You can specify whether you want to use scaled train/test data.
     # If you want, you can also set a specific feature.
     data_lr = LR(data)
-    data_lr.run(scaled=False)
+    data_lr.run(scaled=scaled)
 
     # Print a basic report for the final results.
     if os.environ['REPORT'] == '1':

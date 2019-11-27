@@ -13,6 +13,8 @@ if __name__ == '__main__':
     parser.add_option("-l", "--linear_regression", help="linear regression", action="store", dest="lr")
     parser.add_option("-d", "--debug", help="enable debug", action="store_true", dest="debug", default=False)
     parser.add_option("-r", "--report", help="enable report", action="store_true", dest="report", default=False)
+    parser.add_option("-S", "--scaled", help="use scaled values", action="store_true", dest="scaled", default=False)
+    parser.add_option("-D", "--drop_first", help="drop first one hot encoding", action="store_true", dest="drop", default=False)
     (options, args) = parser.parse_args()
 
     if options.inventory:
@@ -31,6 +33,14 @@ if __name__ == '__main__':
         os.environ['REPORT'] = '1'
     else:
         os.environ['REPORT'] = '0'
+    if options.scaled:
+        os.environ['SCALED'] = '1'
+    else:
+        os.environ['SCALED'] = '0'
+    if options.drop:
+        os.environ['DROP'] = '1'
+    else:
+        os.environ['DROP'] = '0'
 
     if "INVENTORY" not in os.environ and not options.inventory:
         print('Cannot start, please specify inventory with -i')
