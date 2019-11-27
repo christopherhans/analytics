@@ -41,7 +41,7 @@ def analytics_run(scope=None):
     print_debug(data.df.head())
     # Preprocess dataframe for ML scenarios.
     data_ml = ML(data)
-    data_ml.one_hot_encoding(columns=['room_type', 'property_type'], drop_first=True)
+    data_ml.one_hot_encoding(drop_first=True)
     data_ml.train_test(y=os.environ['RESULT'], ratio=0.33, state=42)
     # data_ml.scaler()
 

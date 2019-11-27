@@ -7,7 +7,11 @@ class ML:
     def __init__(self, obj):
         self.obj = obj
 
-    def one_hot_encoding(self, columns, drop_first):
+    def one_hot_encoding(self, drop_first):
+        columns = []
+        for c in self.obj.df.columns:
+            if self.obj.df[c].map(type).all() == str:
+                columns.append(c)
         self.obj.df = pd.get_dummies(data=self.obj.df, columns=columns, drop_first=drop_first)
 
     def train_test(self, y, ratio, state):
@@ -15,6 +19,7 @@ class ML:
         y = self.obj.df[y].values
         self.obj.X_train, self.obj.X_test, self.obj.y_train, self.obj.y_test = train_test_split(X, y, test_size=ratio,
                                                                                                 random_state=state)
+
     def scaler(self):
         min_max_scaler = preprocessing.MinMaxScaler()
         if len(self.obj.df.columns) <= 2:
