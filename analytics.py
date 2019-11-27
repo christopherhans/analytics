@@ -8,7 +8,7 @@ if __name__ == '__main__':
     parser = OptionParser()
     parser.add_option("-i", "--inventory", help="path to csv file", action="store", dest="inventory")
     parser.add_option("-s", "--scope", help="columns", action="append", dest="scope")
-    parser.add_option("-y", "--yplsilom", help="path to csv file", action="store", dest="inventory")
+    parser.add_option("-y", "--result", help="column you want to predict", action="store", dest="result")
     parser.add_option("-k", "--knn", help="k nearest neighbor", action="store", dest="knn")
     parser.add_option("-l", "--linear_regression", help="linear regression", action="store", dest="lr")
     parser.add_option("-d", "--debug", help="enable debug", action="store_true", dest="debug", default=False)
@@ -17,6 +17,8 @@ if __name__ == '__main__':
 
     if options.inventory:
         os.environ['INVENTORY'] = options.inventory
+    if options.result:
+        os.environ['RESULT'] = options.result
     if options.knn:
         os.environ['KNN'] = options.knn
     if options.lr:
@@ -32,6 +34,10 @@ if __name__ == '__main__':
 
     if "INVENTORY" not in os.environ and not options.inventory:
         print('Cannot start, please specify inventory with -i')
+        sys.exit(0)
+
+    if "RESULT" not in os.environ and not options.result:
+        print('Cannot start, please specify target y/f(x) with -y')
         sys.exit(0)
 
     if options.scope:

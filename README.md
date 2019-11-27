@@ -10,12 +10,13 @@ python analytics.py -i <path/to/csv>
 Optional: ``pip install -r requirements.txt``
 ### Parameter
 
-| Kurz | Lang | Anwendung | Beschreibung |
-|------|:----:|:---------:|:------------:|
-| -i   | --inventory | Pfad zum CSV file | Gibt die Datei an, die eingelesen werden soll. |
-| -s   | --scope | Für jedes Column, welches betrachtet werden muss, muss ein -s angehangen werden | Die Columns, die in das betrachtete Dataframe übernommen werden. |
-| -r   | --report | / | Erzeugt einen kurzen Bericht in der Shell. |
-| -d   | --debug | / | Erzeugt ein paar Print-Ausgaben, um den Programmablauf besser nachvollziehen zu können. |
+|Pflicht| Kurz | Lang | Anwendung | Beschreibung |
+|---|------|:----:|:---------:|:------------:|
+| x || -i   | --inventory | Pfad zum CSV file | Gibt die Datei an, die eingelesen werden soll. |
+| x || -s   | --scope | Für jedes Column, welches betrachtet werden muss, muss ein -s angehangen werden | Die Columns, die in das betrachtete Dataframe übernommen werden. |
+| x || -y   | --result | Name der Ziel-Spalte | Welcher Wert ist y/f(x) |
+|   || -r   | --report | / | Erzeugt einen kurzen Bericht in der Shell. |
+|   || -d   | --debug | / | Erzeugt ein paar Print-Ausgaben, um den Programmablauf besser nachvollziehen zu können. |
 
 ---
 ### Klassen

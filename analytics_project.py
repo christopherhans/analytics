@@ -20,7 +20,7 @@ def analytics_run(scope=None):
     # Some debug output
     print_debug(data.df.head())
     print_debug('Before cleaning: ')
-    print_debug(data.df.shape)
+    print_debug(data.df.room_type.head())
 
     # Some cleaning steps.
     # You can remove additional columns by running the remove_custom function.
@@ -30,19 +30,19 @@ def analytics_run(scope=None):
     data_cleaning.remove_nan()
     data_cleaning.price_to_float()
     # data_cleaning.numeric()
-    data_cleaning.remove_outlier()
-    # data_cleaning.property_type_()
+    # data_cleaning.remove_outlier()
+    data_cleaning.property_type_()
 
     # some debug output
     print_debug('After cleaning: ')
-    # print_debug(data.df.shape)
+    print_debug(data.df.room_type.head())
     # print_debug(data.df.isna().any())
 
     print_debug(data.df.head())
     # Preprocess dataframe for ML scenarios.
     data_ml = ML(data)
-    # data_ml.one_hot_encoding(columns=['property_type'], drop_first=True)
-    data_ml.train_test(y='price', ratio=0.33, state=42)
+    data_ml.one_hot_encoding(columns=['room_type', 'property_type'], drop_first=True)
+    data_ml.train_test(y=os.environ['RESULT'], ratio=0.33, state=42)
     # data_ml.scaler()
 
     # Run k-Nearest-Neighbor.
