@@ -4,7 +4,7 @@ Ist nur bedingt anwendbar auf Datensätze, die wir nicht in der Vorlesung behand
 
 ## Ausführen
 ````
-python analytics.py -i <path/to/csv>
+python analytics.py -i <path/to/csv> -y <column>
 
 ````
 Optional: ``pip install -r requirements.txt``
@@ -13,8 +13,8 @@ Optional: ``pip install -r requirements.txt``
 |Pflicht| Kurz | Lang | Anwendung | Beschreibung |
 |---|------|:----:|:---------:|:------------:|
 | x | -i   | --inventory | Pfad zum CSV file | Gibt die Datei an, die eingelesen werden soll. |
-| x | -s   | --scope | Für jedes Column, welches betrachtet werden muss, muss ein -s angehangen werden | Die Columns, die in das betrachtete Dataframe übernommen werden. |
 | x | -y   | --result | Name der Ziel-Spalte | Welcher Wert ist y/f(x) |
+|   | -s   | --scope | Für jedes Column, welches betrachtet werden muss, muss ein -s angehangen werden | Die Columns, die in das betrachtete Dataframe übernommen werden. |
 |   | -r   | --report | / | Erzeugt einen kurzen Bericht in der Shell. |
 |   | -d   | --debug | / | Erzeugt ein paar Print-Ausgaben, um den Programmablauf besser nachvollziehen zu können. |
 
