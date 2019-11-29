@@ -21,7 +21,6 @@ class KNN:
         if neighbors == 0:
             better = True
             helper = None
-            neighbors = 0
             while better is True:
                 neighbors += 1
                 knn = KNeighborsRegressor(n_neighbors=neighbors)
