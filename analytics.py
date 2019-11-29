@@ -9,12 +9,15 @@ if __name__ == '__main__':
     parser.add_option("-i", "--inventory", help="path to csv file", action="store", dest="inventory")
     parser.add_option("-s", "--scope", help="columns", action="append", dest="scope")
     parser.add_option("-y", "--result", help="column you want to predict", action="store", dest="result")
-    parser.add_option("-k", "--knn", help="activates k-nearest-neighbor with amount of neighbors", action="store", dest="knn")
-    parser.add_option("-l", "--linear_regression", help="linear regression", action="store_true", dest="lr", default=False)
+    parser.add_option("-k", "--knn", help="activates k-nearest-neighbor with amount of neighbors", action="store",
+                      dest="knn", default=0)
+    parser.add_option("-l", "--linear_regression", help="linear regression", action="store_true", dest="lr",
+                      default=False)
     parser.add_option("-d", "--debug", help="enable debug", action="store_true", dest="debug", default=False)
     parser.add_option("-r", "--report", help="enable report", action="store_true", dest="report", default=False)
     parser.add_option("-S", "--scaled", help="use scaled values", action="store_true", dest="scaled", default=False)
-    parser.add_option("-D", "--drop_first", help="drop first one hot encoding", action="store_true", dest="drop", default=False)
+    parser.add_option("-D", "--drop_first", help="drop first one hot encoding", action="store_true", dest="drop",
+                      default=False)
     (options, args) = parser.parse_args()
 
     if options.inventory:

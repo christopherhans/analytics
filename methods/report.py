@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 def report(obj):
     print(obj.df)
     if 'KNN' in os.environ:
+        print(f'KNN Neighbors: {obj.neighbors}')
         print(f'KNN Mean-Squared-Error: {obj.knn_mse}')
     if 'LINEAR_REGRESSION' in os.environ:
         print(f'Linear Regression Mean-Squared-Error: {obj.lr_mse}')

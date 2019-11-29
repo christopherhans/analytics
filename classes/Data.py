@@ -16,3 +16,4 @@ class Data:
         self.coef_ = None
         self.intercept_ = None
         self.used_features = None
+        self.neighbors = None

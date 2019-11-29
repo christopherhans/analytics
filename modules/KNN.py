@@ -18,7 +18,29 @@ class KNN:
             xtest = self.obj.X_test_scaled
             ytest = self.obj.y_test_scaled
 
+        if neighbors == 0:
+            better = True
+            helper = None
+            neighbors = 0
+            while better is True:
+                neighbors += 1
+                knn = KNeighborsRegressor(n_neighbors=neighbors)
+                knn.fit(xtrain, ytrain)
+                self.obj.knn_pred = knn.predict(xtest)
+                self.obj.knn_mse = mean_squared_error(ytest, self.obj.knn_pred)
+                if helper:
+                    if self.obj.knn_mse < helper:
+                        helper = self.obj.knn_mse
+                    else:
+                        self.obj.knn_mse = helper
+                        better = False
+                        self.obj.neighbors = neighbors - 1
+                else:
+                    helper = self.obj.knn_mse
+
         knn = KNeighborsRegressor(n_neighbors=neighbors)
         knn.fit(xtrain, ytrain)
         self.obj.knn_pred = knn.predict(xtest)
         self.obj.knn_mse = mean_squared_error(ytest, self.obj.knn_pred)
+        self.obj.neighbors = neighbors
+

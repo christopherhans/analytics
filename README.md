@@ -19,7 +19,7 @@ Optional: ``pip install -r requirements.txt``
 |   | -d   | --debug | / | Erzeugt ein paar Print-Ausgaben, um den Programmablauf besser nachvollziehen zu können. |
 |   | -S   | --scaled| / | Nutzt sklaierte Werte für ML |
 |   | -D   | --drop_first | / | Setzt drop_first beim OneHotEncoding auf True |
-|   | -k   | --knn | Anzahl der Nachbarn | Aktiviert den k-Nearest-Neighbor Algorithmus |
+|   | -k   | --knn | Anzahl der Nachbarn | Aktiviert den k-Nearest-Neighbor Algorithmus. 0 = optimal. |
 |   | -l   | --linear_regression | / | Aktiviert den Linearen Regressionsalgorithmus |
 
 ---
